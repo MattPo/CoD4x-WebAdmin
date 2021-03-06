@@ -1,4 +1,5 @@
 // Require needed modules
+const i18next = require('i18next');
 const mongoose = require('mongoose');
 const Jimp = require("jimp");
 const fs = require('fs');
@@ -30,6 +31,7 @@ const Plugins = require("../../models/plugins");
 const Playerstat = require("../../models/player_stats");
 const Chathistory =  require("../../models/chathistory");
 const config = require('../../config/config');
+const Systemlogs = require("../../models/system_logs");
 
 
 //Set dates for testing
@@ -38,6 +40,7 @@ start.setHours(0,0,0,0);
 
 var end = new Date();
 end.setHours(23,59,59,999);
+const main_lng = i18next.getFixedT(config.website_language);
 
 module.exports = {
 
@@ -563,6 +566,12 @@ module.exports = {
 			}}).exec(function(err, done){
 				if(err) {
 					console.log(err);
+				} else {
+					var newSystemlogs = new Systemlogs ({
+						logline: main_lng('notifications:index.PluginLocalServerStart_admin_logs', { get_ServerName: results.servers.name, get_UserName: req.user.local.user_name }),
+						successed: true
+					});
+					newSystemlogs.saveAsync()
 				}
 			});
 
@@ -607,6 +616,12 @@ module.exports = {
 			}}).exec(function(err, done){
 				if(err) {
 					console.log(err);
+				} else {
+					var newSystemlogs = new Systemlogs ({
+						logline: main_lng('notifications:index.PluginLocalServerStop_admin_logs', { get_ServerName: results.servers.name, get_UserName: req.user.local.user_name }),
+						successed: true
+					});
+					newSystemlogs.saveAsync()
 				}
 			});
 			

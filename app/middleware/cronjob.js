@@ -31,7 +31,7 @@ const main_lng = i18next.getFixedT(config.website_language);
 
 var now = new Date();
 var current_time = new moment().format("H");
-	
+
 
 // ################################ Check CoD4xWebadmin version on Github page ################################ //
 var job = schedule.scheduleJob('5 2 * * *', function(){
@@ -47,7 +47,7 @@ var job1 = schedule.scheduleJob('6 2 * * *', function(){
 var rmadminactions = schedule.scheduleJob('46 1 * * *', function(){
 	var daysToDeletion = parseInt(3);
 	var deletionDate = new Date(now.setDate(now.getDate() - daysToDeletion));
-	Systemlogs.find({createdAt : {$lt : deletionDate}},function(error, counted){	
+	Systemlogs.find({createdAt : {$lt : deletionDate}},function(error, counted){
 		if (!error){
 			if (counted.length > 0){
 				Systemlogs.deleteMany({ createdAt : {$lt : deletionDate} }, function(err) {
@@ -63,16 +63,16 @@ var rmadminactions = schedule.scheduleJob('46 1 * * *', function(){
 				});
 			}
 		}
-	});	
+	});
 });
 
 // ################################ Plugin remove Old Tempbans from the website ################################ //
 var rmadminactions = schedule.scheduleJob('37 15 * * *', function(){
 	var start = new Date();
-	Plugins.findOne({'name_alias':'remove-old-tempbans'},function(error, plugintempbandelete){	
+	Plugins.findOne({'name_alias':'remove-old-tempbans'},function(error, plugintempbandelete){
 		if (!error){
 			if (plugintempbandelete.status==true){
-				
+
 				var daysToDeletion = parseInt(14);
 				var deletionDate = new Date(now.setDate(now.getDate() - daysToDeletion));
 
@@ -89,7 +89,7 @@ var rmadminactions = schedule.scheduleJob('37 15 * * *', function(){
 				});
 			}
 		}
-	});	
+	});
 });
 
 // ################################ Remove players data from DB where name is empty ################################ //
@@ -287,23 +287,23 @@ var runstartonservercrashed = schedule.scheduleJob('30 */7 * * *', function(){
 
 // ################################ Remove Github Files CoD4x Server every day at X hours ################################ //
 var downloadcod4xgithub = schedule.scheduleJob('27 5 * * *', function(){
-	Plugins.findOne({'name_alias':'download-cod4x-files-from-github'},function(error, plugincod4x){	
+	Plugins.findOne({'name_alias':'download-cod4x-files-from-github'},function(error, plugincod4x){
 		if (!error){
 			if (plugincod4x.status==true){
 				remove_cod4_github();
 			}
 		}
-	});	
+	});
 });
 
 
 // ################################ Plugin remove Old Player Data from the website ################################ //
 var rmadminactions = schedule.scheduleJob('5 3 * * *', function(){
 	var start = new Date();
-	Plugins.findOne({'name_alias':'remove-old-player-data'},function(error, pluginplayerdatadelete){	
+	Plugins.findOne({'name_alias':'remove-old-player-data'},function(error, pluginplayerdatadelete){
 		if (!error){
 			if (pluginplayerdatadelete.status==true){
-				
+
 				var daysToDeletion = parseInt(pluginplayerdatadelete.cron_job_time_intervals);
 				var deletionDate = new Date(now.setDate(now.getDate() - daysToDeletion));
 
@@ -320,19 +320,19 @@ var rmadminactions = schedule.scheduleJob('5 3 * * *', function(){
 				});
 			}
 		}
-	});	
+	});
 });
 
 // ################################ Plugin remove Old Game Chat ################################ //
 var rmadminactions = schedule.scheduleJob('7 3 * * *', function(){
 	var start = new Date();
-	Plugins.findOne({'name_alias':'remove-old-game-chat'},function(error, pluginchatdelete){	
+	Plugins.findOne({'name_alias':'remove-old-game-chat'},function(error, pluginchatdelete){
 		if (!error){
 			if (pluginchatdelete.status==true){
-				
+
 				var daysToDeletion = parseInt(pluginchatdelete.cron_job_time_intervals);
 				var deletionDate = new Date(now.setDate(now.getDate() - daysToDeletion));
-				
+
 				Chathistory.updateMany({ messages: { $exists: true } },
 					{$pull: { 'messages': { sent: { $lt: deletionDate } } }
 				}).then (function(deleted){
@@ -346,18 +346,18 @@ var rmadminactions = schedule.scheduleJob('7 3 * * *', function(){
 				});
 			}
 		}
-	});	
+	});
 });
 
 // ################################ Download files from Github CoD4x Server every day at X hours ################################ //
-var downloadcod4xgithub = schedule.scheduleJob('30 5 * * *', function(){
-	Plugins.findOne({'name_alias':'download-cod4x-files-from-github'},function(error, plugincod4x){	
+var downloadcod4xgithub = schedule.scheduleJob('37 23 * * *', function(){
+	Plugins.findOne({'name_alias':'download-cod4x-files-from-github'},function(error, plugincod4x){
 		if (!error){
 			if (plugincod4x.status==true){
 				download_cod4_github();
 			}
 		}
-	});	
+	});
 });
 
 // ################################ Functions ################################ //
@@ -401,7 +401,7 @@ function download_cod4_github(req, res, next) {
 	ssh.exec('cd '+config.cod4_server_plugin.servers_root, {
 		out: console.log.bind('Entering the servers root directory')
 	}).exec('git clone -b master --single-branch https://github.com/callofduty4x/CoD4x_Server.git CoD4x_Server-master && exit', {
-		pty: true,	
+		pty: true,
 		out: console.log.bind('Start CoD4x Master files download')
 	}).start();
 	var newSystemlogs = new Systemlogs ({
@@ -421,7 +421,7 @@ function remove_cod4_github(req, res, next) {
 	ssh.exec('cd '+config.cod4_server_plugin.servers_root, {
 		out: console.log.bind('Entering the servers root directory')
 	}).exec('sudo rm -rf '+config.cod4_server_plugin.servers_root+'/CoD4x_Server-master && exit', {
-		pty: true,	
+		pty: true,
 		out: console.log.bind('Start CoD4x Master files download')
 	}).start();
 };
@@ -470,13 +470,13 @@ function discordmessages (title, color, description){
 				"title": title,
 				"color": color,
 				"url": config.website_url,
-				"description": description,				
+				"description": description,
 				"timestamp": new Date(),
 				"footer": {
 				"icon_url": config.discord_webhook.webhook_avatar,
 				"text": main_lng('general:footer.footer_rights')
 				}
-			}] 
+			}]
 		});
 	});
 	msgdiscord.on("error", (error) => {

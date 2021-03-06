@@ -11,7 +11,7 @@ const arrify = require('arrify');
 const fs = require('fs');
 const S = require('underscore.string');
 const replaceString = require('replace-string');
-const requestify = require('requestify'); 
+const requestify = require('requestify');
 const User = require("../../models/user");
 const Rconcommand = require("../../models/server_commands");
 const ExtraRcon = require("../../models/extra_rcon_commands");
@@ -91,7 +91,7 @@ module.exports = {
 		BluebirdPromise.props({
 			requiredpower: ExtraRcon.findOne({'name': 'extra_rcon'}).execAsync(),
 			getserver: Servers.findOne({'admins_on_server':req.user._id, '_id':req.params.id, 'rcon_password': { $exists: true }}).execAsync(),
-		}).then(function(results) {			
+		}).then(function(results) {
 			if (results.getserver){
 				if ( results.requiredpower.enable_maprotate !== 'undefined' && results.requiredpower.enable_maprotate){
 					if (req.user.local.user_role >= results.requiredpower.minimum_power_for_maprotate){
@@ -131,7 +131,7 @@ module.exports = {
 		BluebirdPromise.props({
 			requiredpower: ExtraRcon.findOne({'name': 'extra_rcon'}).execAsync(),
 			getserver: Servers.findOne({'admins_on_server':req.user._id, '_id':req.params.id, 'rcon_password': { $exists: true }}).execAsync(),
-		}).then(function(results) {			
+		}).then(function(results) {
 			if (results.getserver){
 				if ( results.requiredpower.enable_screenshot_all !== 'undefined' && results.requiredpower.enable_screenshot_all){
 					if (req.user.local.user_role >= results.requiredpower.minimum_admin_power_for_screenshots){
@@ -148,7 +148,7 @@ module.exports = {
 								console.log('We have an error: '+err.stack);
 								req.flash('rconconsole_messages', err.stack);
 								res.redirect('back');
-							});	
+							});
 					}else{
 						req.flash('error_messages', req.t('rcon_commands:general.general_no_permission'));
 						res.redirect('back');
@@ -173,7 +173,7 @@ module.exports = {
 			requiredpower: ExtraRcon.findOne({'name': 'extra_rcon'}).execAsync(),
 			maps: Maps.findOne({'map_name': req.body.map_name}).execAsync(),
 			getserver: Servers.findOne({'admins_on_server':req.user._id, '_id':req.params.id, 'rcon_password': { $exists: true }}).execAsync(),
-		}).then(function(results) {	
+		}).then(function(results) {
 			if (results.getserver){
 				if ( results.requiredpower.enable_map_change !== 'undefined' && results.requiredpower.enable_map_change){
 					if (req.user.local.user_role >= results.requiredpower.minimum_power_for_map_change){
@@ -315,7 +315,7 @@ module.exports = {
 												}).catch(function(err) {
 													req.flash('rconconsole_messages', err.stack);
 													res.redirect('back');
-												});	
+												});
 											}
 										})
 									} else {
@@ -352,10 +352,10 @@ module.exports = {
 										}).catch(function(err) {
 											req.flash('rconconsole_messages', err.stack);
 											res.redirect('back');
-										});	
+										});
 									}
 								}
-							})			
+							})
 						} else {
 							req.flash('error_messages', req.t('rcon_commands:general.general_no_permission'));
 							res.redirect('back');
@@ -398,7 +398,7 @@ module.exports = {
 						}else{
 							sendcommand = setdefault_reason;
 						}
-						var cmd = req.body.rcon_cmd+' '+req.body.player_slot+' '+sendcommand;						
+						var cmd = req.body.rcon_cmd+' '+req.body.player_slot+' '+sendcommand;
 						var	rcon = require('srcds-rcon')({address:results.getserver.ip+':'+results.getserver.port,password: results.getserver.rcon_password});
 							rcon.connect()
 							.then(function(connected){
@@ -416,8 +416,8 @@ module.exports = {
 								} else {
 									req.flash('error_messages', req.t('rcon_commands:general.cmd_doesnt_exist'));
 									res.redirect('back');
-								}							
-							}).then(function(returninfo){										
+								}
+							}).then(function(returninfo){
 								if (req.body.rcon_cmd=='kick'){
 									if ( typeof results.getcommand.send_back_message_to_server !== 'undefined' && results.getcommand.send_back_message_to_server==true){
 										var cmdinform = 'say '+main_lng('rcon_commands:RconAdminAction.kick_msg_game_server', {get_PlayerName: req.body.rcon_player, get_AdminName: req.user.local.user_name, get_Reason: setdefault_reason});
@@ -557,7 +557,7 @@ module.exports = {
 														req.flash('rconconsole_messages', req.t('rcon_commands:RconChatAction.return_message_muted_chat',{ get_PlayerName:req.body.rcon_player}));
 													} else {
 														req.flash('rconconsole_messages', req.t('rcon_commands:RconChatAction.return_message_muted_voice',{ get_PlayerName:req.body.rcon_player}));
-													}													
+													}
 													req.flash('notify_messages', req.t('rcon_commands:general.info_msg_sent_to_server'));
 												}).then(function(disconnect){
 													rcon.disconnect();
@@ -565,7 +565,7 @@ module.exports = {
 												}).catch(function(err) {
 													req.flash('rconconsole_messages', err.stack);
 													res.redirect('back');
-												});	
+												});
 											}
 										})
 									} else {
@@ -604,7 +604,7 @@ module.exports = {
 												req.flash('rconconsole_messages', req.t('rcon_commands:RconChatAction.return_message_muted_chat',{ get_PlayerName:req.body.rcon_player}));
 											} else {
 												req.flash('rconconsole_messages', req.t('rcon_commands:RconChatAction.return_message_muted_voice',{ get_PlayerName:req.body.rcon_player}));
-											}													
+											}
 											req.flash('notify_messages', req.t('rcon_commands:general.info_msg_sent_to_server'));
 										}).then(function(disconnect){
 											rcon.disconnect();
@@ -612,10 +612,10 @@ module.exports = {
 										}).catch(function(err) {
 											req.flash('rconconsole_messages', err.stack);
 											res.redirect('back');
-										});	
+										});
 									}
 								}
-							})			
+							})
 						} else {
 							req.flash('error_messages', req.t('rcon_commands:general.general_no_permission'));
 							res.redirect('back');
@@ -667,7 +667,7 @@ module.exports = {
 										get_server: results.screenshotserver._id
 					  			});
 					  			newUserScreenshot.saveAsync()
-								}								
+								}
 				  				req.flash('rconconsole_messages', getresult);
 							}).then(function(disconnect){
 								rcon.disconnect();
@@ -701,7 +701,7 @@ module.exports = {
 								}).catch(function(err) {
 									req.flash('rconconsole_messages', err.stack);
 									res.redirect('back');
-								});	
+								});
 						}else{
 							req.flash('error_messages', req.t('rcon_commands:general.general_no_permission'));
 							res.redirect('back');
@@ -714,7 +714,7 @@ module.exports = {
 					req.flash('error_messages', req.t('rcon_commands:general.general_no_admin_rights_on_server'));
 					res.redirect('back');
 				}
-			}	
+			}
 		}).catch(function(err) {
 			console.log("There was an error: " +err);
 			res.redirect('back');
@@ -780,7 +780,7 @@ module.exports = {
 																	req.flash('rconconsole_messages', req.t('rcon_commands:RconPermban.rconconsole_messages_on_ban', {get_PlayerName:results.getscreenshot.player_name, get_Reason:setdefault_reason}));
 																	req.flash('notify_messages', req.t('rcon_commands:general.info_msg_sent_to_server'));
 																	newBan.saveAsync();
-																	
+
 																	ServerScreenshots.deleteOne({'screenshot_img': create_img_variable}, function(error) {
 																		if (error) {
 																			console.log(error);
@@ -829,7 +829,7 @@ module.exports = {
 															req.flash('rconconsole_messages', req.t('rcon_commands:RconPermban.rconconsole_messages_on_ban', {get_PlayerName:results.getscreenshot.player_name, get_Reason:setdefault_reason}));
 															req.flash('notify_messages', req.t('rcon_commands:general.info_msg_sent_to_server'));
 															newBan.saveAsync();
-															
+
 															ServerScreenshots.deleteOne({'screenshot_img': create_img_variable}, function(error) {
 																if (error) {
 																	console.log(error);
@@ -850,7 +850,7 @@ module.exports = {
 													}
 												}
 											})
-											
+
 										}
 									}
 								});
@@ -865,7 +865,7 @@ module.exports = {
 					}).catch(function(err) {
 						console.log("There was an error: " +err);
 						res.redirect('back');
-					});					
+					});
 			}else{
 				req.flash('error_messages', req.t('rcon_commands:RconPermban.no_ss_found'));
 				res.redirect('back');
@@ -996,7 +996,7 @@ module.exports = {
 				}else{
 					req.flash('error_messages', req.t('rcon_commands:general.general_no_permission'));
 					res.redirect('back');
-				}			
+				}
 			} else {
 				req.flash('error_messages', req.t('rcon_commands:general.general_no_admin_rights_on_server'));
 				res.redirect('back');
@@ -1063,7 +1063,7 @@ module.exports = {
 																rcon.connect()
 																.then(function(connected){
 																	return rcon.command(cmd);
-																}).then(function(getresult){	
+																}).then(function(getresult){
 																	var newpath = replaceString(results.getreport.player_screenshot, "/img/cheater-reports/", "/img/banned/");
 																	req.flash('notify_messages', req.t('rcon_commands:general.info_msg_sent_to_server'));
 													  				var newBan = new Bans ({
@@ -1166,7 +1166,7 @@ module.exports = {
 																Cheaterreports.deleteMany({'_id': req.params.id}).exec();
 																Notifications.deleteMany({'cheater_report_id':results.getreport._id}).exec();
 															}).then(function(returninfo){
-																if ( typeof results.getcommand.send_back_message_to_server !== 'undefined' && results.getcommand.send_back_message_to_server==true){								
+																if ( typeof results.getcommand.send_back_message_to_server !== 'undefined' && results.getcommand.send_back_message_to_server==true){
 																	var cmdinform = 'say '+main_lng('rcon_commands:RconPermban.rconconsole_cmdinform_on_ban', {get_PlayerName:results.getreport.player_name, get_Admin:req.user.local.user_name, get_Reason:setdefault_reason});
 																	return rcon.command(cmdinform);
 																}
@@ -1194,7 +1194,7 @@ module.exports = {
 					}).catch(function(err) {
 						console.log("There was an error: " +err);
 						res.redirect('back');
-					});					
+					});
 			}else{
 				req.flash('error_messages', req.t('rcon_commands:RconPermban.no_ss_found'));
 				res.redirect('back');
@@ -1296,6 +1296,7 @@ module.exports = {
 									admin_name: results.getban.admin_name,
 									admin_id: results.getban.admin_id
 								});
+								Notifications.deleteOne({'bann_id' : req.params.id}).exec();
 								newUnban.saveAsync();
 
 								if (results.checkunbanrequest){
@@ -1321,12 +1322,12 @@ module.exports = {
 											  Notifications.deleteOne({'bann_id' : req.params.id}).exec();
 											  Bans.deleteOne({'_id': req.params.id}).exec();
 										  }
-									  });	
+									  });
 								} else {
 									Bans.deleteOne({'_id': req.params.id}).exec();
-							  	}		
+							  	}
 								req.flash('success_messages', req.t('rcon_commands:RconUnban.success_unban'));
-								res.redirect('/banlist');				  			
+								res.redirect('/banlist');
 						} else {
 							req.flash('error_messages', req.t('rcon_commands:general.general_no_permission'));
 							res.redirect('back');
@@ -1338,7 +1339,7 @@ module.exports = {
 				}).catch(function(err) {
 					console.log("There was an error: " +err);
 					res.redirect('back');
-				});					
+				});
 			} else {
 				req.flash('error_messages', req.t('rcon_commands:RconUnban.permban_not_found'));
 				res.redirect('back');
@@ -1377,7 +1378,7 @@ module.exports = {
 										admin_name: results.getban.admin_name,
 										admin_id: results.getban.admin_id
 									});
-									newUnban.saveAsync();					  			
+									newUnban.saveAsync();
 									Tempbans.deleteOne({'_id': req.params.id}).exec();
 									req.flash('success_messages', req.t('rcon_commands:RconUnban.success_unban'));
 									res.redirect('/banlist');
@@ -1397,7 +1398,7 @@ module.exports = {
 					}).catch(function(err) {
 						console.log("There was an error: " +err);
 						res.redirect('back');
-					});					
+					});
 			} else {
 				req.flash('error_messages', req.t('rcon_commands:RconUnban.permban_not_found'));
 				res.redirect('back');

@@ -3,7 +3,7 @@
         "home": "Home",
         "members": "Members",
         "banlist": "Banlist",
-        "players_data": "Players Data",
+        "players_data": "Player List",
         "latest_notifications":"Latest Notifications",
         "view_all":"View All",
         "login":"Login",
@@ -12,6 +12,6 @@
         "profile":"Profile",
         "logout":"Logout",
         "my_profile":"My Profile",
-        "cheater_reports":"Cheater Reports"
+        "cheater_reports":"Player Reports"
     }
 }

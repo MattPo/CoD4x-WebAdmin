@@ -2,7 +2,7 @@
     "pageTitle": {
         "home": "Home",
         "members": "Members",
-        "banlist": "Banned Players List",
+        "banlist": "Banned Players",
         "players_data": "Players Data",
         "latest_notifications":"Latest Notifications",
         "view_all":"View All",
@@ -14,11 +14,11 @@
         "profile":"Profile",
         "logout":"Logout",
         "my_profile":"My Profile",
-        "cheater_reports":"Cheater Reports",
+        "cheater_reports":"Player Reports",
         "banbyID":"Banned Player",
-        "get_players":"Players Data",
+        "get_players":"Players",
         "getMyNotifications":"Server Admin Notifications",
-        "getCheaterReports":"Cheater Reports",
+        "getCheaterReports":"Player Reports",
         "getGlobalNotifications":"My Notifications",
         "getAdminApp":"Admin Application",
         "getConversations":"Admin Conversations"

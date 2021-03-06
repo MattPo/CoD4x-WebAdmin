@@ -1,8 +1,8 @@
 {
     "local_login": {
-        "error_no_user": "There is no user with this Email!",
+        "error_no_user": "There is no user with this email!",
         "error_wrong_password": "Oops! Wrong password!",
-        "error_user_exist": "There is already an account with this Email!"
+        "error_user_exist": "There is already an account with this email!"
     },
 
     "input_validation": {

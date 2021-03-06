@@ -1,26 +1,26 @@
 {
     "cheater_reports_msg": {
-        "msg_title": "New Cheater Report",
-        "message": "{{getUserName}} reported {{getReportedPlayer}} as Cheater! For more details visit {{get_website}}!"
+        "msg_title": "Recieved: Player report",
+        "message": "{{getUserName}} has been reported {{getReportedPlayer}} as a potential cheater. For more details visit {{get_website}}!"
     },
 
     "unban_request_msg": {
-        "msg_title": "New Unban Request",
-        "message": "New Unban Request sent by {{getUserName}}! For more details visit {{get_website}}!"
+        "msg_title": "Recieved: Ban appeal",
+        "message": "{{getUserName}} has submitted a ban appeal. For more details visit {{get_website}}!"
     },
 
     "new_admin_application_msg": {
-        "msg_title": "New Admin Application",
-        "message": "{{getUserName}} sent a new Admin Application! For more details visit {{get_website}}!"
+        "msg_title": "Recieved: Admin application",
+        "message": "{{getUserName}} has submitted a admin application. For more details visit {{get_website}}!"
     },
 
     "new_admin_added_msg": {
-        "msg_title": "We have a New Server Admin",
-        "message": "Congratulations {{getUserName}} !!! Welcome to {{get_website}}!"
+        "msg_title": "Accepted: Server Admin",
+        "message": "Warm welcome to {{getUserName}} on joining us at {{get_website}}!"
     },
 
     "new_admin_conversation": {
-        "msg_title": "New Admin Conversation Started",
-        "message": "{{getUserName}} started a new Admin Conversation. Help Us to make the right Decision! If you have Admin Rights visit {{get_website}}!"
+        "msg_title": "Started: Admin Conversation",
+        "message": "{{getUserName}} started a new admin conversation. Help us to make the right decision! If you have admin rights, visit {{get_website}}!"
     }
 }

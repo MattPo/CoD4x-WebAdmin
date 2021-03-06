@@ -1,59 +1,59 @@
 {
     "global": {
-        "error_page_removed": "Sorry, that page does not exist, it may be removed in the mean time!",
-        "error_script": "There was an error, please try again or Contact the script Owner",
-        "error_no_permission": "You have no Permission to visit this page. Required power is:"
+        "error_page_removed": "Sorry, that page does not exist",
+        "error_script": "-",
+        "error_no_permission": "You do not have permission to visit this page. Required power is:"
     },
 
     "index": {
-        "ScreenshotsRemove_error": "Screenshots not deleted! There was an error: {{display_error}}",
-        "ScreenshotsRemove_success": "Screenshots successfully deleted!",
-        "ScreenshotsRemove_error_permission":"Screenshots not deleted! Minimum power for screenshots delete is: {{req_power}}",
+        "ScreenshotsRemove_error": "Screenshot not deleted! There was an error: {{display_error}}",
+        "ScreenshotsRemove_success": "Screenshot successfully deleted!",
+        "ScreenshotsRemove_error_permission":"Screenshot not deleted! Minimum power required: {{req_power}}",
 
         "InsertNewCheaterReport_error_already_banned": "is already banned!",
-        "InsertNewCheaterReport_error_already_reported": "is already reported! Please be patient until one of our Admins check the existing Cheater Report!",
-        "InsertNewCheaterReport_success_report_sent": "Cheater Report for {{getPlayer}} successfully sent!",
-        "InsertNewCheaterReport_error_no_screenshot": "This Screenshot does not exist, it may be removed in the mean time or the player is already banned.",
+        "InsertNewCheaterReport_error_already_reported": "has already been reported! Please be patient until one of our admins check the existing report!",
+        "InsertNewCheaterReport_success_report_sent": "Report for {{getPlayer}} successfully sent!",
+        "InsertNewCheaterReport_error_no_screenshot": "This screenshot does not exist, it may have been removed or the player has already been banned.",
 
-        "InsertNewunbanRequest_success_sent": "Unban Request for {{getPlayer}} successfully sent!",
-        "InsertNewunbanRequest_error_ban_not_found": "This Ban doesnt exist, it may be removed in the mean time or the player is already unbanned.",
-        "InsertNewunbanRequest_error_already_sent": "Unban Request already sent, wait until Server Admins make a decision, you will be informed!",
+        "InsertNewunbanRequest_success_sent": "Ban appeal for {{getPlayer}} successfully sent!",
+        "InsertNewunbanRequest_error_ban_not_found": "This ban doesn't exist, it may have already been removed or the player is already unbanned.",
+        "InsertNewunbanRequest_error_already_sent": "Ban appeal has already been recieved. Please wait until a decision has been made.",
 
-        "CheaterReportRemove_declined_msg": "Cheater Report successfully deleted. Player is not banned, cheater reporter has been informed on our decision!",
+        "CheaterReportRemove_declined_msg": "Player report successfully deleted. The player was not banned, the reporter will be informed of our decision.",
         
-        "UnbanRequestRemove_declined_msg": "Unban Request Declined, Player is not Unbanned! Reporter will be informed on our decision!",
+        "UnbanRequestRemove_declined_msg": "Ban appeal declined, the player has not been unbanned. They will be informed of our decision.",
 
-        "GlobalNotificationsRemove_cleaned": "Notifications successfully cleaned!",
+        "GlobalNotificationsRemove_cleaned": "Notifications successfully cleared!",
 
         "getAdminApp_already_admin": "You Are already an Admin!",
         "InsertNewAdminApp": "New Admin Application",
 
-        "InsertNewAdminApp_already_admin": "You Are already an Admin!",
+        "InsertNewAdminApp_already_admin": "You are already an admin!",
         "InsertNewAdminApp_cheater_reports_count_error": "You need at least {{count_CheaterReports}} cheater Reports!",
-        "InsertNewAdminApp_success_sent": "Admin Application Successfully Sent. You will be informed on our decision within 7 days!",
+        "InsertNewAdminApp_success_sent": "Admin application successfully sent. You will be informed of our decision within 7 days!",
 
-        "AdminAppRemove_declined": "Admin Application Declined. Player is informed about our Decision!",
+        "AdminAppRemove_declined": "Admin application declined. Player has been informed about our decision!",
 
-        "AdminAppAccept_accepted": "Admin Application Accepted. Player is informed about our Decision!",
+        "AdminAppAccept_accepted": "Admin application accepted. Player has been informed about our decision!",
 
-        "AdminAppConversationStart_started": "Admin Application Discussion Started Successfully!",
+        "AdminAppConversationStart_started": "Admin application discussion started successfully!",
 
-        "getConversations_restricted_access": "Only Server Admins can Visit this page!",
+        "getConversations_restricted_access": "Only server admins can visit this page!",
 
-        "getKGBplugin_restricted_access": "You have no Admin rights on this Server!",
-        "getKGBplugin_restricted_access_low_power": "Higher Admin Power required to use KGB Host Plugin!",
-        "getKGBplugin_restricted_access_plugin_disabled": "KGB Host Plugin is disabled!",
+        "getKGBplugin_restricted_access": "You have no admin rights on this server!",
+        "getKGBplugin_restricted_access_low_power": "Higher admin power required to use KGB Host Plugin!",
+        "getKGBplugin_restricted_access_plugin_disabled": "KGB Host plugin is disabled!",
 
         "PluginLocalServerStart_success_server_started": "Server successfully started!",
-        "PluginLocalServerStart_restricted_access": "You have no Admin rights on this Server!",
-        "PluginLocalServerStart_restricted_access_low_power": "Higher Admin Power required to use Start-Stop-Server Plugin!",
+        "PluginLocalServerStart_restricted_access": "You have no admin rights on this server!",
+        "PluginLocalServerStart_restricted_access_low_power": "Higher admin power required to use Start-Stop-Server Plugin!",
         "PluginLocalServerStart_restricted_access_only_local_server": "Start-Stop-Server Plugin can be only used on Local CoD4x Servers!",
         "PluginLocalServerStart_restricted_access_plugin_disabled": "Start-Stop-Server Plugin is disabled!",
         "PluginLocalServerStart_admin_logs": "{{get_ServerName}} started by {{get_UserName}}",
 
         "PluginLocalServerStop_success_server_started": "Server successfully stopped!",
-        "PluginLocalServerStop_restricted_access": "You have no Admin rights on this Server!",
-        "PluginLocalServerStop_restricted_access_low_power": "Higher Admin Power required to use Start-Stop-Server Plugin!",
+        "PluginLocalServerStop_restricted_access": "You have no admin rights on this Server!",
+        "PluginLocalServerStop_restricted_access_low_power": "Higher admin power required to use Start-Stop-Server Plugin!",
         "PluginLocalServerStop_restricted_access_only_local_server": "Start-Stop-Server Plugin can be only used on Local CoD4x Servers!",
         "PluginLocalServerStop_restricted_access_plugin_disabled": "Start-Stop-Server Plugin is disabled!",
         "PluginLocalServerStop_admin_logs": "{{get_ServerName}} stopped by {{get_UserName}}"
