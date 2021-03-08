@@ -76,7 +76,7 @@ module.exports = {
 
 	getGithubRelase: function(req, res, next) {
 		var my_packagejsonfile = './package.json';
-		githubLatestRelease('byNeHo', 'CoD4x-WebAdmin', function (err, github_results){
+		githubLatestRelease('MattPo', 'CoD4x-WebAdmin', function (err, github_results){
 			jsonfile.readFile(my_packagejsonfile, function(err, obj) {
 				if (err){
 					console.log(err)
