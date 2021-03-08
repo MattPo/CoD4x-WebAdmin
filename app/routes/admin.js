@@ -28,9 +28,9 @@ module.exports = function(router, passport){
 
 	/*###################### SERVERS ##################################################*/
 
-	router.get('/home', requireRole(100), isLoggedIn, index.getAdminHome);
+	router.get('/home', requireRole(80), isLoggedIn, index.getAdminHome);
 	router.get('/rcon-settings', requireRole(100), isLoggedIn, index.getRconSettings);
-	router.get('/check-github-relase', requireRole(100), isLoggedIn, index.getGithubRelase);
+	router.get('/check-github-relase', requireRole(80), isLoggedIn, index.getGithubRelase);
 	router.get('/players-data/delete/:id', requireRole(100), isLoggedIn, index.PlayersDataRemove);
 
 	/*###################### SERVERS ##################################################*/
@@ -75,11 +75,11 @@ module.exports = function(router, passport){
 
 	/*###################### MANAGE USERS ##################################################*/
 
-	router.post('/manage-users/edit/update/servers/:id', requireRole(100), isLoggedIn, manageusers.ManageUsersUpdateServers);
-	router.post('/manage-users/edit/update/:id', requireRole(100), isLoggedIn, manageusers.ManageUsersUpdate);
-	router.get('/manage-users/edit/:id', requireRole(100), isLoggedIn, manageusers.ManageUsersByID);
-	router.get('/manage-users/delete/:id', requireRole(100), isLoggedIn, manageusers.UserRemove);
-	router.get('/manage-users', requireRole(100), isLoggedIn, manageusers.getManageUsers);
+	router.post('/manage-users/edit/update/servers/:id', requireRole(80), isLoggedIn, manageusers.ManageUsersUpdateServers);
+	router.post('/manage-users/edit/update/:id', requireRole(80), isLoggedIn, manageusers.ManageUsersUpdate);
+	router.get('/manage-users/edit/:id', requireRole(80), isLoggedIn, manageusers.ManageUsersByID);
+	router.get('/manage-users/delete/:id', requireRole(80), isLoggedIn, manageusers.UserRemove);
+	router.get('/manage-users', requireRole(80), isLoggedIn, manageusers.getManageUsers);
 
 	/*###################### MANAGE PLUGINS ##################################################*/
 
